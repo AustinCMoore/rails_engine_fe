@@ -13,4 +13,8 @@ class MerchantService
   def self.show(merchant_id)
     get_url("merchants/#{merchant_id}")
   end
+
+  def self.merchant_items(merchant_id)
+    get_url("merchants/#{merchant_id}/items")
+  end
 end
