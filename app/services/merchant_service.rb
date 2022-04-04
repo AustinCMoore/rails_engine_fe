@@ -9,4 +9,8 @@ class MerchantService
   def self.index
     get_url('merchants')
   end
+
+  def self.show(merchant_id)
+    get_url("merchants/#{merchant_id}")
+  end
 end

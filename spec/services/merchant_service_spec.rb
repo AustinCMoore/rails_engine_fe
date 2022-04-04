@@ -16,4 +16,18 @@ RSpec.describe 'The Merchant Service' do
       expect(all_merchants[:data].first[:attributes][:name]).to be_instance_of(String)
     end
   end
+
+  it ".show" do
+    VCR.use_cassette('get_merchant_1') do
+      merchant = MerchantService.show(1)[:data]
+      expect(merchant).to be_instance_of(Hash)
+      expect(merchant).to have_key(:id)
+      expect(merchant[:id]).to eq("1")
+      expect(merchant).to have_key(:type)
+      expect(merchant[:type]).to eq("merchant")
+      expect(merchant).to have_key(:attributes)
+      expect(merchant[:attributes].length).to eq(1)
+      expect(merchant[:attributes][:name]).to eq("Schroeder-Jerde")
+    end
+  end
 end

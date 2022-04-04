@@ -9,4 +9,12 @@ RSpec.describe 'The Merchant Facade' do
       expect(all_merchants.length).to eq(100)
     end
   end
+
+  it ".get_merchant" do
+    VCR.use_cassette('get_merchant_1') do
+      merchant = MerchantFacade.new.get_merchant(1)
+      expect(merchant).to be_instance_of(Merchant)
+      #should I test attributes?
+    end
+  end
 end

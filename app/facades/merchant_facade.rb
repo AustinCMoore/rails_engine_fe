@@ -4,4 +4,9 @@ class MerchantFacade
       Merchant.new(data)
     end
   end
+
+  def get_merchant(merchant_id)
+    merchant_data = MerchantService.show(merchant_id)[:data]
+    Merchant.new(merchant_data)
+  end
 end
