@@ -14,9 +14,8 @@ RSpec.describe 'The merchants index' do
 
       within '#merchants' do
         expect(page).to have_content('Merchants')
-        # expect(page).to have_link('') (Merchant names)
-        # Should length be tested?
-        # Any way to validate the merchants created?
+        expect(page).to have_link('Schroeder-Jerde') #what if this is deleted?
+        expect(page).to have_link('Glover Inc')
       end
     end
   end
@@ -25,9 +24,9 @@ RSpec.describe 'The merchants index' do
     VCR.use_cassette('get_all_merchants') do
       visit "/merchants"
       within '#merchants' do
-        # click_link 'Merchant Name'
+        click_link 'Schroeder-Jerde' #what if this is deleted?
       end
-      # expect(current_path).to eq("/merchants/#{merchant.id}")
+      expect(current_path).to eq("/merchants/1") #what if there are more?
     end
   end
 end
