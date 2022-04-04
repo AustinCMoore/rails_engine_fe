@@ -1,0 +1,10 @@
+<section id="title">
+  <h1> <%= "#{@merchant.name }"%> </h1>
+</section>
+
+<section id="items">
+  <h2> Items </h2>
+  <% @items.each do |item| %>
+    <h3> <%= link_to "#{item.name}", "/items/#{item.id}" %> <h3>
+  <% end %>
+</section>

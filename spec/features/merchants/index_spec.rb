@@ -1,10 +1,3 @@
-#As a visitor
-#When I visit /merchants
-#I should see a list of merchants by name (alphabetical?)
-#When I click on the merchant's name,
-#I should be on that merchant's show page
-#I should see a list of items that merchant sells
-
 require 'rails_helper'
 
 RSpec.describe 'The merchants index' do
@@ -21,7 +14,7 @@ RSpec.describe 'The merchants index' do
   end
 
   it "links to the show page when a merchant name is clicked" do
-    VCR.use_cassette('get_all_merchants') do
+    VCR.use_cassette('get_all_merchants_links') do
       visit "/merchants"
       within '#merchants' do
         click_link 'Schroeder-Jerde' #what if this is deleted?
