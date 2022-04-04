@@ -9,7 +9,7 @@ require 'rails_helper'
 
 RSpec.describe 'The merchants index' do
   it "has a list of merchants by name" do
-    VCR.use_cassette('get all merchants') do
+    VCR.use_cassette('get_all_merchants') do
       visit "/merchants"
 
       within '#merchants' do
@@ -22,7 +22,7 @@ RSpec.describe 'The merchants index' do
   end
 
   it "links to the show page when a merchant name is clicked" do
-    VCR.use_cassette('get all merchants') do
+    VCR.use_cassette('get_all_merchants') do
       visit "/merchants"
       within '#merchants' do
         # click_link 'Merchant Name'
